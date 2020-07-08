@@ -1,0 +1,158 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.container{
+    width: 100%;
+    /* background-color: aquamarine; */
+}
+.section{
+    width: 960px;
+    margin: auto;
+    /* background-color: pink; */
+    margin-bottom: 50px;
+
+    
+}
+.title{
+    text-align: center;
+}
+.title h1{
+    margin-bottom: 10px;
+}
+.title nav{
+    overflow: hidden;
+    padding: 15px;
+}
+.title a{
+    padding: 0px 30px;
+    border: 1px dotted black;
+    margin:  0px 20px;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+}
+.section .info{
+    width: 355px;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+.info-red{
+    text-align: center;
+    background-color: red;
+    padding: 18px;
+}
+.info-red span{
+    display: inline-block;
+    transform: rotate(90deg);
+    font-size:90px;
+    padding-bottom: 30px;
+}
+.info-black{
+    text-align: left;
+    background-color: black;
+    padding: 18px 18px 56px;
+}
+.content{
+    width: 622px;
+    padding: 10px 20px;
+    background-color: #eee;
+    position: relative;
+    z-index: 2;
+    top: 200px;
+    left: 50px;
+    
+}
+.content h2{
+    color: darkred;
+}
+.content .text{
+    margin: 10px 0px;
+}
+.content .text h3{
+    width: fit-content;
+    font-weight: 200;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px;
+}
+.content .text p::before{
+    content: '■';
+    color: red;
+}
+.content .text p{
+    padding: 0px 20px;
+    color: #777;
+}
+.pic{
+    width: 695px;
+    position: relative;
+    bottom: 480px;
+    left: 200px;
+    background-color: silver;
+    
+    
+}
+.pic img{
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+}
+.yt-icon{
+    position: absolute;
+    top: 50%;
+    right: -15px;
+}
+.background{
+    position: absolute;
+    background-color: #333333;
+    opacity: 0.2;
+    height: 290px;
+    width: 439px;
+    top: -100px;
+    right: -65px;
+}
+.even .info{
+    top: 0px;
+    left: 605px;
+}
+.even .pic{
+    left: 15px;
+    bottom: 363px;
+}
+.even .pic .yt-icon{
+    left: -15px;
+}
+.even .pic .background{
+    width: 518px;
+    height: 413px;
+    right:-100px;
+}
+.even .content{
+    left:298px;
+    top: 230px;
+}
+.advantage3 .pic{
+    bottom: 500px;
+}
+.advantage3 .content{
+    top: 200px;
+}
+.advantage4 .pic{
+    bottom: 400px;
+}
+.advantage4 .content{
+    top: 200px;
+}
+.advantage5 .pic{
+    bottom: 400px;
+}
+.advantage5 .content{
+    top: 220px;
+}
+.advantage5{
+    margin-bottom: 0px;
+}

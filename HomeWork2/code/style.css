@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.section{
+    width: 100%;
+    padding: 0px 0px;
+    /* margin: 0px 0px 150px 0px; */
+}
+
+.container{
+    width: 1200px;
+    padding: 0px 0px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* color: #ffffff; */
+    /* background-color: deepskyblue; */
+}
+#header-section{
+    background-color: #679509;
+}
+#header-slogn{
+    line-height: 23.8px;
+    font-size: 14px;
+    letter-spacing: 0.28px;
+    color: #fff;
+}
+#header-nav{
+    display: flex;
+}
+#header-nav a{
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 20.4px;
+    letter-spacing: 0.6px;
+    text-align: center;
+}
+#header-nav a::after{}
+
+#navigation-section{
+    
+}
+#navigation-container{}
+#navigation-log{}
+#navigation-nav{
+    display: flex;
+    padding: 22px -16px;
+    vertical-align: middle;
+    
+}
+#navigation-nav a{
+    display: block;
+    text-decoration: none;
+    color: #a5a5a5;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 23.002px;
+    letter-spacing: 0.56px;
+    text-align: center;
+}
+#intro-section{
+    overflow: hidden;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+#intro-section img{
+    height: 100%;
+
+}
+#intro-conatiner{
+    /* width: 100%; */
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+#intro-context{
+    position: absolute;
+    top: 20%;
+}
+#intro-context h1{
+    height: 195px;
+    width: 578px;
+    color: #333333;
+
+    font-size: 82px;
+    font-weight: 900;
+    line-height: 98.4px;
+}
+#intro-context h1 span{
+    color: #679509;
+}
+#intro-context h3{
+    font-family: 'Pacifico', cursive;
+    color: #363636;
+    font-size: 30px;
+    line-height: 40.32px;
+    margin-bottom: 20px;
+    
+}
+#intro-context a{
+    display: block;
+    padding: 20px 30px;
+    height: 59px;
+    width: 171px;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    text-align: center;
+    color:#ffffff;
+    background-color: #86AE34;
+
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: 900;
+    transition: 0.5s;
+}
+#intro-context a:hover{
+    background-color: #363636;
+}
+#welcome-section{
+    font-size: 16px;
+    line-height: 27.2px;
+    /* background-color: darkcyan; */
+
+}
+#welcome-container{
+    /* background-color: darkblue; */
+    display: flex;
+    flex-direction: column;
+}
+#welcome-title{
+    width: 100%;
+    text-align: center;
+    color: #86AE34;
+    margin-bottom: 50px;
+    
+}
+#welcome-group{
+    display: flex;
+    flex-wrap: wrap;
+}
+#welcome-group .item{
+    width: 380px;
+    padding: 0px 20px;
+    margin: 0px,100px;
+    text-align: center;
+    box-sizing: border-box;
+}
+#welcome-group .item h4{
+    color: #4f4f4f;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+    line-height: 29px;
+}
+#welcome-group .item p{
+    color: #8b8b8b;
+    font-size: 16px;
+    line-height: 27.2px;
+}
+#welcome-group .pic-item{
+    width: 50%;
+    padding: 0px;
+    margin: 0px;
+}
+#welcome-group .pic-item img{
+    width: 100%;
+}
+#product-section{
+    font-size: 16px;
+    line-height: 27.2px;
+    margin: auto;
+}
+#product-group{
+    display: flex;
+    justify-content: space-between;
+}
+#product-title{
+    width: 100%;
+    font-size: 32px;
+    line-height: 43.008px;
+    text-align: center;
+}
+#product-group .item{
+    width: 22%;
+    box-sizing: border-box;
+    text-align: center;
+}
+#product-group .item img{
+    border: 1px solid lightgray;
+    width: 100%;
+    box-sizing: border-box;
+
+}
