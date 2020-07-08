@@ -20,6 +20,8 @@
 }
 .title h1{
     margin-bottom: 10px;
+    border-bottom: 3px solid black;
+    padding-bottom: 13px;
 }
 .title nav{
     overflow: hidden;
