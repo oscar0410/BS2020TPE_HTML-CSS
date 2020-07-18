@@ -204,3 +204,24 @@
     box-sizing: border-box;
 
 }
+
+#shop-section .pic img{
+    width: 100%;
+    overflow: hidden;
+}
+
+#shop-section .pic{
+    position: relative;
+    display: block;
+    /* background-color: red; */
+}
+
+#shop-section .text{
+    /* background-color: #679509; */
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+    left: 40%;
+    right: 0;
+    
+}
