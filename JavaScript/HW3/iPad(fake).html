@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/95ec66c5d2.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <title>假iPad選購網站</title>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .fa-circle {
+            font-size: 50px;
+        }
+        .gray-circle {
+            color: gainsboro;
+        }
+        .sliver-circle {
+            color: silver;
+        }
+        .gold-circle {
+            color: #ca8f6a;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 商品列 -->
+    <!-- <nav class="navbar navbar-light  justify-content-center mb-5">
+        <form class="form ">
+            <button class="btn btn-outline-success" type="button" onclick="iPadPic()">iPad</button>
+            <button class="btn btn-outline-danger" type="button" onclick="iPhonePic()">iPhone</button>
+            <button class="btn btn-outline-primary" type="button" onclick="MacProPic()">MacBook Pro</button>
+        </form>
+    </nav> -->
+    <!-- 展示區 -->
+    <div class="container d-lg-flex mt-5 justify-content-lg-around">
+        <!-- 商品圖 -->
+        <div class="col-12 col-lg-3 mt-2">
+            <img src="pic/ipad-hero-unselected-201909_GEO_TW.jpg"
+                class="h-auto position-fixed" width="372" height="606" id="ProductPic">
+        </div>
+        <!-- 商品規格 -->
+        <div class="col-12 col-lg-4 ">
+            <!-- 顏色 -->
+            <div class="row">
+                <h2>顏色</h2>
+            </div>
+            <div class="row justify-content-between justify-content-lg-between align-items-center text-center my-lg-3">
+                <button class="col-5 col-lg-5  p-3 mb-3 mg-lg-0 btn btn-light" onclick="GrayiPad()">
+                    <i class="fas fa-circle gray-circle mt-3"></i>
+                    <p>太空灰色</p>
+                </button>
+                <button class="col-5 col-lg-5 p-3 mb-3 mg-lg-0 btn btn-light" onclick="SliveriPad()">
+                    <i class="fas fa-circle sliver-circle mt-3"></i>
+                    <p>銀色</p>
+                </button>
+                <button class="col-5 col-lg-5 p-3 mb-3 mg-lg-0 btn btn-light" onclick="GoldiPad()">
+                    <i class="fas fa-circle gold-circle mt-3"></i>
+                    <p>金色</p>
+                </button>
+            </div>
+            <!-- 記憶體規格 -->
+            <div class="row">
+                <h2>規格</h2>
+            </div>
+            <div class="row justify-content-between justify-content-lg-between my-lg-3">
+                <button class="col-5 col-lg-5 border border-dark p-4 text-center mb-3 mg-lg-0" onclick="spec(32)">
+                    <h5>32GB</h5>
+                    <small>NT$10,900起</small>
+                </button>
+                <button class="col-5 col-lg-5 border border-dark p-4 text-center mb-3 mg-lg-0" onclick="spec(128)">
+                    <h5>128GB</h5>
+                    <small>NT$13,900起</small>
+                </button>
+                <!-- <button class="col-5 col-lg-3 border border-dark  p-4 text-center mb-3 mg-lg-0" onclick="spec(256)">
+                    <h5>256GB</h5>
+                    <small>NT$30400</small>
+                </button> -->
+            </div>
+            <!-- 連線能力 -->
+            <div class="row">
+                <h2>連線能力</h2>
+            </div>
+            <div class="row justify-content-between justify-content-lg-between my-lg-3">
+                <button class="col-5 col-lg-5 border border-dark p-4 text-center mb-3 mg-lg-0" onclick="NormalPrice()">
+                    <h5>Wi-Fi</h5>
+                    <small id="normal-spec" value="">NT$10,900</small>
+                </button>
+                <button class="col-5 col-lg-5 border border-dark p-4 text-center mb-3 mg-lg-0" onclick="HighPrice()">
+                    <h5>Wi-Fi +<br>行動裝置</h5>
+                    <small id="high-spec">NT$15,400</small>
+                </button>
+            </div>
+            <div class="row">
+                <h2>價格試算</h2>
+            </div>
+            <div class="row">
+                <h2 id="final-price">NT$0</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+    <script>
+        function iPhonePic() {
+            document.getElementById("ProductPic").src ="pic/iphone11-select-2019-family.jpg"
+        }
+
+        function MacProPic() {
+            document.getElementById("ProductPic").src ="pic/mbp13touch-silver-select-202005_GEO_TW.jpg"
+        }
+
+        function iPadPic() {
+            document.getElementById("ProductPic").src ="pic/ipad-hero-unselected-201909_GEO_TW.jpg"
+        }
+    </script>
+
+    <script>
+        function GrayiPad() {
+            document.getElementById("ProductPic").src ="pic/ipad-wifi-select-space-201909_GEO_TW.png"
+        }
+
+        function SliveriPad() {
+            document.getElementById("ProductPic").src ="pic/ipad-wifi-select-silver-201909_GEO_TW.png"
+        }
+
+        function GoldiPad() {
+            document.getElementById("ProductPic").src ="pic/ipad-wifi-select-gold-201909_GEO_TW.png"
+        }
+    </script>
+
+    <script>
+        function spec(num) {
+            var normalSpec = document.getElementById("normal-spec");
+            var highSpec = document.getElementById("high-spec");
+            var result = 0;
+            var normalprice, highprice=0;
+            if (num == 32) {
+                normalprice = "10,900";
+                highprice = "15,400";
+                normalSpec.innerText = `NT$${normalprice}`;
+                highSpec.innerText = `NT$${highprice}`;
+                document.getElementById("final-price").innerText = "NT$10,900";
+
+            } else if (num == 128) {
+                normalprice = "13,900";
+                normalSpec.innerText = `NT$${normalprice}`;
+                highprice = "18,400";
+                highSpec.innerText = `NT$${highprice}`;
+                document.getElementById("final-price").innerText = "NT$13,900";
+            }
+
+        }
+    </script>
+
+    <script>
+
+        function NormalPrice(){
+            var result="";        
+            result = document.getElementById("normal-spec").innerText;
+            document.getElementById("final-price").innerText = result;
+        }
+
+        function HighPrice(){
+            var result="";        
+            result = document.getElementById("high-spec").innerText;
+            document.getElementById("final-price").innerText = result;
+        }
+
+    </script>
+
+
+</body>
+
+</html>
