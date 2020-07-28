@@ -92,14 +92,16 @@
                     if (a == 4) {
                         alert("猜到了~遊戲結束");
                         $('tbody').append(`<tr><td></td><td>遊戲結束</td><td></td></tr>`);
+                        document.getElementById("input").disabled = true;
+                        $("#show").addClass("disabled");
+                        $("#submit").addClass("disabled");
+                        $("#retry").text("重玩一次");
                     }
 
-                } 
-                else {
+                } else {
                     alert("有重複數字，請重新輸入!");
                 }
-            } 
-            else {
+            } else {
                 alert("請輸入四位數字!");
             }
 
@@ -119,6 +121,10 @@
                 numArray.splice(index, 1);
             }
             $("tbody").empty();
+            document.getElementById("input").disabled = false;
+            $("#show").removeClass("disabled");
+            $("#submit").removeClass("disabled");
+            $("#retry").text("放棄重來");
         })
 
         // 判斷是否為純數字 
@@ -144,6 +150,8 @@
             }
             return repeatItem;
         }
+
+        
     </script>
 </body>
 
