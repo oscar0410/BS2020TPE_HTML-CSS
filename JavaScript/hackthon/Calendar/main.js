@@ -44,13 +44,17 @@ btnNM.addEventListener("click", NextMonth);
 let btnBack = document.getElementById("btnBack");
 btnBack.addEventListener("click", BackToday);
 // 增加行事曆按鈕
-let btnNew = document.querySelector("#addClaeBtn")
+let btnNew = document.querySelector("#addClaeBtn");
+btnNew.addEventListener("click", ModalDefault);
 // 行事曆內部按鈕-新增(預設顯示)
-let btnAdd = document.querySelector("#btn-add")
+let btnAdd = document.querySelector("#btn-add");
+btnAdd.addEventListener("click", AddSchdule);
 // 行事曆內部按鈕-修改
-let btnUpdate = document.querySelector("#btn-update")
+let btnUpdate = document.querySelector("#btn-update");
+btnUpdate.addEventListener("click", UpdateSchdule)
 // 行事曆內部按鈕-刪除
-let btnDelete = document.querySelector("#btn-delete")
+let btnDelete = document.querySelector("#btn-delete");
+btnDelete.addEventListener("click",DeleteSchdule)
 
 Refresh();
 // 刷新表格內容
@@ -60,6 +64,7 @@ function Refresh() {
     ShowYear();
     ShowMonth();
     ShowDate();
+    ShowSchedule(currentYear, currentMonth);
 }
 // 顯示年分
 function ShowYear() {
@@ -104,11 +109,16 @@ function ShowDate() {
             currentMonth == monthOfToday &&
             currentYear == yearOfToday
         ) {
-            btn.classList.add("bg-success", "text-white","btn","btn-block","dateBtn");
+            btn.classList.add(
+                "bg-success",
+                "text-white",
+                "btn",
+                "btn-block",
+                "dateBtn"
+            );
             markToday = true;
-        }
-        else{
-            btn.classList.add("btn","btn-block","dateBtn");
+        } else {
+            btn.classList.add("btn", "btn-block", "dateBtn");
         }
         btn.innerText = i;
         td.appendChild(btn);
@@ -121,20 +131,19 @@ function ShowDate() {
             tr = document.createElement("tr");
             tbody.appendChild(tr);
         }
-        
+
         if (td_counter % 7 == 0 || td_counter % 7 == 1) {
             td.classList.add("bg-danger", "text-white");
         }
     }
 
-    while(td_counter %7 !=0){
+    while (td_counter % 7 != 0) {
         td = document.createElement("td");
         td.innerText = "";
         tr.appendChild(td);
         td_counter++;
     }
 }
-
 // 執行去年按鈕
 function LastYear() {
     currentYear--;
@@ -165,8 +174,106 @@ function NextMonth() {
 }
 
 // 回到今天
-function BackToday(){
+function BackToday() {
     currentMonth = nowdate.getMonth();
     currentYear = nowdate.getFullYear();
     Refresh();
+}
+
+// 切換Modal Button
+function ModalDefault() {
+    btnAdd.classList.remove("d-none");
+    btnDelete.classList.add("d-none");
+    btnUpdate.classList.add("d-none");
+    // input清空
+    let input = document.querySelectorAll("input");
+    input.forEach((element) => (element.value = ""));
+}
+
+// 新增行事曆
+function AddSchdule(val) {
+    let title = document.querySelector("#title").value;
+    let date = document.querySelector("#date").value;
+    let time = document.querySelector("#time").value;
+    let details = document.querySelector("#details").value;
+
+    if (title == "" || date == "" || time == "") {
+        alert("標題、時間、日期 缺一不可!!!");
+        return false;
+    } else {
+        if (typeof value == "string") {
+            localStorage.removeItem(value);
+        }
+        SetLocalStorage(title, date, time, details);
+        $("#Schedule").modal("hide");
+        Refresh();
+    }
+}
+// 將行程儲存至LS
+function SetLocalStorage(title, date, time, details){
+    // 建立物件
+    let data = {
+        title: title,
+        date: date,
+        time: time,
+        details: details,
+    };
+    // 物件轉成JSON格式儲存至LocalStorage
+    localStorage.setItem(Date.now(), JSON.stringify(data));
+};
+// 顯示該年該月的行程
+ function ShowSchedule(year, month){
+    for (var i = 0; i < localStorage.length; i++) {
+        let getdata = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        let dataDate = getdata.date;
+
+        if (year + "-" + month.toString().padStart(2, "0") == dataDate.substring(0, 7)
+        ) {
+            let key = localStorage.key(i);
+            let title = data.title.toString();
+            let target = document.getElementById(dataDate);
+            let btnSche = document.createElement("button");
+            btnSche.classList.add("btn", "btn-block", "border", "border-secondary");
+            if (title.length <= 3) {
+                btnSche.textContent = title
+            }
+            else {
+                btnSche.textContent = title.substring(0, 3) + "....."
+            }
+            btnSche.dataset.toggle = "modal";
+            btnSche.dataset.target = "#Schedule";
+
+            btnSche.addEventListener("click", function () {
+                //Model按鈕
+                // 新增 X 修改 O 刪除 O
+                btnAdd.classList.add("d-none");
+                btnDelete.classList.remove("d-none");
+                btnUpdate.classList.remove("d-none");
+                document.querySelector("#ScheduleTitle").textContent = "顯示/修改";
+
+
+                btnDelete.setAttribute("value", key);
+                btnUpdate.setAttribute("value", key);
+
+                document.querySelector("#title").value = getdata.title;
+                document.querySelector("#date").value = dataDate;
+                document.querySelector("#time").value = getdata.time;
+                document.querySelector("#contents").value = getdata.contents;
+                document.querySelector("#color").value = getdata.color;
+                document.querySelector("#position").value = getdata.position;
+
+            });
+            target.appendChild(btnSche);
+        }
+    }
+};
+
+function DeleteSchdule(){
+    localStorage.removeItem(this.value);
+        $('#todoModal').modal('hide');
+        showCalendar(currentYear, currentMonth);
+}
+
+function UpdateSchdule(){
+    AddSchdule(this.value)
 }
