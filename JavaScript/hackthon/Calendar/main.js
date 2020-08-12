@@ -12,7 +12,7 @@ let currentDay = nowdate.getDay();
 let currentDaysOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 // 當月第一天為星期幾
 let currentFirstDayofMonth = new Date(currentYear, currentMonth, 1).getDay();
-
+// 月份中文顯示
 let Monthstring = [
     "一",
     "二",
@@ -40,10 +40,17 @@ btnLM.addEventListener("click", LastMonth);
 // 下個月按鈕
 let btnNM = document.getElementById("NextMonth");
 btnNM.addEventListener("click", NextMonth);
-
 // 回到今天
 let btnBack = document.getElementById("btnBack");
 btnBack.addEventListener("click", BackToday);
+// 增加行事曆按鈕
+let btnNew = document.querySelector("#addClaeBtn")
+// 行事曆內部按鈕-新增(預設顯示)
+let btnAdd = document.querySelector("#btn-add")
+// 行事曆內部按鈕-修改
+let btnUpdate = document.querySelector("#btn-update")
+// 行事曆內部按鈕-刪除
+let btnDelete = document.querySelector("#btn-delete")
 
 Refresh();
 // 刷新表格內容

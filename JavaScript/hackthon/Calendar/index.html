@@ -11,13 +11,17 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap"
         rel="stylesheet">
-    <link rel="icon" href="icon/calendar-alt-solid.svg" type="image/x-icon"/>
+    <link rel="icon" href="icon/calendar-alt-solid.svg" type="image/x-icon" />
     <title>Calendar</title>
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
         }
+        .fa-plus-circle{
+            font-size: 3rem;
+        }
     </style>
+    <script src="https://kit.fontawesome.com/95ec66c5d2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -52,58 +56,68 @@
                 <tbody id="tbody"></tbody>
             </table>
         </div>
+
         <div class="row justify-content-between">
+            <!-- 移至今天 -->
             <button class="btn btn-link m-3" id="btnBack">回到今天</button>
             <div>
-                <button class="btn btn-success mt-3" data-toggle="modal"
-                    data-target="#TodayCalendar">今日行程</button>
-                <button class="btn btn-danger mt-3 mx-3"  data-toggle="modal"
-                data-target="#AddCalendar">新增行程</button>
+                <!-- 新增顯示 -->
+                <button class="btn btn-success m-3" data-toggle="modal" data-target="#Calendar" id="addClaeBtn"><i class="fas fa-plus-circle"></i></button>
             </div>
         </div>
     </div>
 
     <!-- 今日modal -->
-    <div class="modal fade" id="TodayCalendar" tabindex="-1" role="dialog">
+    <div class="modal fade" id="Calendar" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="TodayCalendarTitle">今日行程</h5>
+                    <h5 class="modal-title" id="CalendarTitle">行程</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <!-- 標題 -->
+                    <div class="form-group row">
+                        <label for="title" class="col-sm-2 col-form-label">標題</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="title" placeholder="行程" required >
+                        </div>
+                    </div>
+                    <!-- 日期 -->
+                    <div class="form-group row">
+                        <label for="date" class="col-sm-2 col-form-label">日期</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="date" required>
+                        </div>
+                    </div>
+                    <!-- 時間 -->
+                    <div class="form-group row">
+                        <label for="time" class="col-sm-2 col-form-label">時間</label>
+                        <div class="col-sm-10">
+                            <input type="time" class="form-control" id="time" required>
+                        </div>
+                    </div>
+                    <!-- 行程細節 -->
+                    <div class="form-group row">
+                        <label for="contents" class="col-sm-2 col-form-label">細節</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="contents" rows="5" placeholder="行程說明"></textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    
+                    <button type="button" class="btn btn-success" id="btn-add">新增</button>
+                    <button type="button" class="btn btn-warning d-none" id="btn-update">修改</button>
+                    <button type="button" class="btn btn-danger d-none" id="btn-delete">刪除</button>
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 新增modal -->
-        <!-- 今日modal -->
-        <div class="modal fade" id="AddCalendar" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="AddCalendarTitle">新增行程</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit"" class="btn btn-success" data-dismiss="modal">新增</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
