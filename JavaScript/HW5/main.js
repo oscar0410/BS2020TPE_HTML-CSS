@@ -23,7 +23,23 @@ function roundDecimal(val, precision) {
 function Digital(num) {
   // 小數點已存在
   if ((text.value.indexOf(".") > -1 && num.value == ".") || hasDot == true) {
-    return false;
+    if ((text.value.indexOf(".") < text.value.indexOf("+")) ||
+      (text.value.indexOf(".") < text.value.lastIndexOf("-")) ||
+      (text.value.indexOf(".") < text.value.indexOf("*")) ||
+      (text.value.indexOf(".") < text.value.indexOf("/"))
+    ) 
+    {
+      if ((text.value.lastIndexOf(".") > text.value.indexOf("+")) ||
+      (text.value.lastIndexOf(".") > text.value.lastIndexOf("-")) ||
+      (text.value.lastIndexOf(".") > text.value.indexOf("*")) ||
+      (text.value.lastIndexOf(".") > text.value.indexOf("/")))
+      {
+        text.value += num.value;
+      }
+    }
+    else {
+      return false;
+    }
   }
   // 小數點還沒有在字串中
   else {
@@ -79,7 +95,7 @@ function Operater(oper) {
     hasOperator = true;
   }
   hasDot = false;
-  console.log(`Operater函式中的hasDot :${hasDot}`);
+  // console.log(`Operater函式中的hasDot :${hasDot}`);
 }
 // "="鍵處理
 function GetResult() {
