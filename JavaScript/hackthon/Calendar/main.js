@@ -64,7 +64,7 @@ function Refresh() {
     ShowYear();
     ShowMonth();
     ShowDate();
-    ShowSchedule(currentYear, currentMonth);
+
 }
 // 顯示年分
 function ShowYear() {
@@ -121,6 +121,7 @@ function ShowDate() {
             btn.classList.add("btn", "btn-block", "dateBtn");
         }
         btn.innerText = i;
+        td.setAttribute("id", `${currentYear}-${(currentMonth+1).toString().padStart(2, "0")}-${i.toString().padStart(2, "0")}`);
         td.appendChild(btn);
         tr.appendChild(td);
         td_counter++;
@@ -143,6 +144,8 @@ function ShowDate() {
         tr.appendChild(td);
         td_counter++;
     }
+    // currentMonth+=1
+     ShowSchedule(currentYear, currentMonth);
 }
 // 執行去年按鈕
 function LastYear() {
@@ -186,7 +189,7 @@ function ModalDefault() {
     btnDelete.classList.add("d-none");
     btnUpdate.classList.add("d-none");
     // input清空
-    let input = document.querySelectorAll("input");
+    let input = document.querySelectorAll("#form-control");
     input.forEach((element) => (element.value = ""));
 }
 
@@ -201,8 +204,8 @@ function AddSchdule(val) {
         alert("標題、時間、日期 缺一不可!!!");
         return false;
     } else {
-        if (typeof value == "string") {
-            localStorage.removeItem(value);
+        if (typeof val == "string") {
+            localStorage.removeItem(val);
         }
         SetLocalStorage(title, date, time, details);
         $("#Schedule").modal("hide");
@@ -223,14 +226,17 @@ function SetLocalStorage(title, date, time, details){
 };
 // 顯示該年該月的行程
  function ShowSchedule(year, month){
+     console.log(year);
+     console.log(month);
     for (var i = 0; i < localStorage.length; i++) {
         let getdata = JSON.parse(localStorage.getItem(localStorage.key(i)));
         let dataDate = getdata.date;
-
-        if (year + "-" + month.toString().padStart(2, "0") == dataDate.substring(0, 7)
+        // console.log(dataDate)
+        // console.log(year + "-" + month.toString().padStart(2, "0"));
+        if (year + "-" + (month+1).toString().padStart(2, "0") == dataDate.substring(0, 7)
         ) {
             let key = localStorage.key(i);
-            let title = data.title.toString();
+            let title = getdata.title.toString();
             let target = document.getElementById(dataDate);
             let btnSche = document.createElement("button");
             btnSche.classList.add("btn", "btn-block", "border", "border-secondary");
@@ -258,20 +264,18 @@ function SetLocalStorage(title, date, time, details){
                 document.querySelector("#title").value = getdata.title;
                 document.querySelector("#date").value = dataDate;
                 document.querySelector("#time").value = getdata.time;
-                document.querySelector("#contents").value = getdata.contents;
-                document.querySelector("#color").value = getdata.color;
-                document.querySelector("#position").value = getdata.position;
+                document.querySelector("#details").value = getdata.details;
 
             });
-            target.appendChild(btnSche);
+            target.append(btnSche);
         }
     }
 };
 
 function DeleteSchdule(){
     localStorage.removeItem(this.value);
-        $('#todoModal').modal('hide');
-        showCalendar(currentYear, currentMonth);
+        $('#Schedule').modal('hide');
+        Refresh();
 }
 
 function UpdateSchdule(){
