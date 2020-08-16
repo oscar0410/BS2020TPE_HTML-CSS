@@ -189,7 +189,7 @@ function ModalDefault() {
     btnDelete.classList.add("d-none");
     btnUpdate.classList.add("d-none");
     // input清空
-    let input = document.querySelectorAll("#form-control");
+    let input = document.querySelectorAll(".form-control");
     input.forEach((element) => (element.value = ""));
 }
 
