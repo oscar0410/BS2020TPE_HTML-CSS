@@ -12,9 +12,18 @@ body {
     background-attachment: fixed;
     display: flex;
 }
+h2{
+    border-left: 2px white solid;
+    background-color: rgba(122, 121, 121, 0.5);
+    width: 100vh;
+    height: 100vh;
+    color: rgba(255, 255, 255, 1);
+    font-size: 32px;
+}
 ol{
     background-color: rgba(122, 121, 121, 0.5);
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     width: 100vh;
     height: 100vh;
@@ -22,7 +31,7 @@ ol{
     align-items: center;
 }
 a{
-    display: block;
+    display: inline-block;
     text-decoration: none;
     padding: 30px;
     color: white; 
@@ -30,6 +39,7 @@ a{
 }
 li{
     border-bottom: 1px solid #333;
+    display: inline-block;
 }
 
 a:hover{
