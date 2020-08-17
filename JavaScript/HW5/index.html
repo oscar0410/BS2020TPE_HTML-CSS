@@ -1,26 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
     <!-- icon -->
     <script src="https://kit.fontawesome.com/95ec66c5d2.js" crossorigin="anonymous"></script>
-    
+
     <style>
-        i{
+        i {
             color: white;
         }
     </style>
 
-    <link rel="icon" href="pic/calculator-solid.svg" type="image/x-icon"/>
-    <title> Simple Calculator</title>
-
+    <link rel="icon" href="pic/calculator-solid.svg" type="image/x-icon" />
+    <title>Simple Calculator</title>
 </head>
 
 <body class="bg-dark">
@@ -32,98 +31,119 @@
                 <div class="row mb-3">
                     <div class="col-11 m-auto">
                         <input type="text" class="form-control text-right" id="stream" placeholder="0" readonly
-                            maxlength="10">
+                            maxlength="10" />
                     </div>
                 </div>
                 <!-- 清除鍵, 正負號, 百分比, 除號 -->
                 <div class="row ml-3 mb-3">
                     <div class="col-3">
                         <button type="button" class="btn btn-primary w-50" onclick="AllClear()">
-                            AC</button>
+                            AC
+                        </button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="btn btn-warning w-50 text-white font-weight-bold" onclick="PlusOrMinus(this)" value="^">
-                            +/-</button>
+                        <button type="button" class="btn btn-warning w-50 text-white font-weight-bold"
+                            onclick="PlusOrMinus(this)" value="^">
+                            +/-
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-warning w-50" onclick="Percent()">
-                            <i class="fas fa-percentage"></i></button>
+                            <i class="fas fa-percentage"></i>
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-warning w-50" value="/" onclick="Operater(this)">
-                            <i class="fas fa-divide"></i></button>
+                            <i class="fas fa-divide"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- 數字鍵7, 數字鍵8, 數字鍵9, 乘號 -->
                 <div class="row ml-3 mb-3">
                     <div class="col-3">
                         <button type="button" class="btn btn-success w-50" value="7" onclick="Digital(this);">
-                            7</button>
+                            7
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-success w-50" value="8" onclick="Digital(this);">
-                            8</button>
+                            8
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-success w-50" value="9" onclick="Digital(this);">
-                            9</button>
+                            9
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-warning w-50" value="*" onclick="Operater(this)">
-                            <i class="fas fa-times"></i></button>
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- 數字鍵4, 數字鍵5, 數字鍵6, 減號 -->
                 <div class="row ml-3 mb-3">
                     <div class="col-3">
                         <button type="button" class="btn btn-success w-50" value="4" onclick="Digital(this);">
-                            4</button>
+                            4
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-success w-50" value="5" onclick="Digital(this);">
-                            5</button>
+                            5
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-success w-50" value="6" onclick="Digital(this);">
-                            6</button>
+                            6
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-warning w-50" value="-" onclick="Operater(this)">
-                            <i class="fas fa-minus"></i></button>
+                            <i class="fas fa-minus"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- 數字鍵1, 數字鍵2, 數字鍵3, 加號 -->
                 <div class="row ml-3 mb-3">
                     <div class="col-3">
-                        <button type="button" class="btn btn-success w-50 " value="1" onclick="Digital(this);">
-                            1</button>
+                        <button type="button" class="btn btn-success w-50" value="1" onclick="Digital(this);">
+                            1
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-success w-50" value="2" onclick="Digital(this);">
-                            2</button>
+                            2
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-success w-50" value="3" onclick="Digital(this);">
-                            3</button>
+                            3
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-warning w-50" value="+" onclick="Operater(this)">
-                            <i class="fas fa-plus"></i></button>
+                            <i class="fas fa-plus"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- 數字鍵0(兩格), 小數點, 等號 -->
                 <div class="row ml-3 mb-3">
                     <div class="col-6">
-                        <button type="button" class="btn btn-success w-100" value="0"
-                            onclick="Digital(this);">0</button>
+                        <button type="button" class="btn btn-success w-100" value="0" onclick="Digital(this);">
+                            0
+                        </button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="btn btn-danger w-50 font-weight-bold" value="." onclick="Digital(this);">
-                            .</button>
+                        <button type="button" class="btn btn-danger w-50 font-weight-bold" value="."
+                            onclick="Digital(this);">
+                            .
+                        </button>
                     </div>
                     <div class="col-3">
                         <button type="button" class="btn btn-warning w-50 text-white" value="=" onclick="GetResult()">
-                            <i class="fas fa-equals"></i></button>
+                            <i class="fas fa-equals"></i>
+                        </button>
                     </div>
                 </div>
             </div>
